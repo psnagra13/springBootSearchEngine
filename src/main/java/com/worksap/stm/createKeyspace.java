@@ -3,6 +3,8 @@ package com.worksap.stm;
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.Session;
 
+
+// create a table to store recent searches
 public class createKeyspace {
 	
 	public static void main(String []args)
@@ -35,7 +37,7 @@ public class createKeyspace {
 		  	+ "word text, "
 	         + "time int, "
 	       
-	         + " primary key(id,time));";
+	         + " primary key(id,time))  WITH CLUSTERING ORDER BY (time DESC) ;";
 
   session.execute(query);
   
